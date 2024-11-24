@@ -59,7 +59,12 @@ namespace Inventory
             items.Remove(i);
         }
 
-        public void RemoveItem(string id)
+        public void RemoveAll()
+        {
+            items.Clear();
+        }
+
+            public void RemoveItem(string id)
         {
             Item i = FindItemById(id);
             if (i != null)
@@ -80,7 +85,16 @@ namespace Inventory
                 }
             }
                 
-            }
+        }
+
+        public void RemoveSomeElementFromItem(Item i, int ammount)
+        {
+                int left = i.ReduceAmmount(ammount);
+                if (left == 0)
+                {
+                items.Remove(i);
+                }
+
         }
     }
 }
