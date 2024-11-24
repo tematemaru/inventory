@@ -4,7 +4,7 @@
     {
         string id;
         string name;
-        int ammount;
+        int ammount = 0;
 
 
         public Item(string id, string name, int ammount)
@@ -17,26 +17,27 @@
 
         public string Id
         {
-            get { return this.id; }
+            get { return id; }
 
         }
 
         public string Name
         {
-            get { return this.name; }
+            get { return name; }
 
         }
 
         public int Ammount
         {
-            get { return this.ammount; }
-            set { this.ammount = value; }
+            get { return ammount; }
+            set { ammount = value; }
 
         }
 
         public int AddAmmount(int ammount)
         {
             this.ammount += ammount;
+
             return this.ammount;
         }
 
@@ -51,6 +52,7 @@
             {
                 this.ammount -= ammount;
             }
+
 
             return this.ammount;
         }

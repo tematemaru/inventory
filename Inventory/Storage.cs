@@ -9,17 +9,17 @@ namespace Inventory
 
         public Storage()
         {
-             this.items = new List<Item>();
+            items = new List<Item>();
         }
 
         private Item FindItemById(string id)
         {
-            return this.items.Find(i => i.Id == id);
+            return items.Find(i => i.Id == id);
         }
 
         public Item[] GetAllItems()
         {
-            return this.items.ToArray();
+            return items.ToArray();
         }
 
         public Item GetItemById(string id)
@@ -29,17 +29,21 @@ namespace Inventory
 
         public Item FindItemByName(string name)
         {
-            return this.items.Find(i => i.Name == name);
+            return items.Find(i => i.Name == name);
         }
 
         public void AddItem(Item item)
         {
+
+
             Item found = items.Find(i => i.Id == item.Id);
             if (found != null) {
                 found.AddAmmount(item.Ammount);
             } else {
                 items.Add(item);
             }
+
+
 
         }
 
@@ -52,16 +56,19 @@ namespace Inventory
                 items[index].Ammount = ammount;
 
             }
+
         }
 
         public void RemoveItem(Item i)
         {
             items.Remove(i);
+
         }
 
         public void RemoveAll()
         {
             items.Clear();
+        
         }
 
             public void RemoveItem(string id)
@@ -70,6 +77,7 @@ namespace Inventory
             if (i != null)
             {
                 RemoveItem(i);
+          
             }
         }
 
@@ -82,6 +90,7 @@ namespace Inventory
                 if (left == 0)
                 {
                     RemoveItem(id);
+            
                 }
             }
                 
@@ -93,7 +102,8 @@ namespace Inventory
                 if (left == 0)
                 {
                 items.Remove(i);
-                }
+     
+            }
 
         }
     }
